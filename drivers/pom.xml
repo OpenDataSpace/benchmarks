@@ -11,7 +11,10 @@
   <url>http://maven.apache.org</url>
 
   <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+      <cmishost>https://devel.dataspace.cc/</cmishost>
+      <cmisuser>jenkinsjmeter</cmisuser>
+      <cmispw>CHANGEME</cmispw>
+      <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
   <build>
@@ -27,6 +30,19 @@
                   <source>1.7</source>
                   <target>1.7</target>
                   <encoding>UTF-8</encoding>
+              </configuration>
+          </plugin>
+          <!-- Run tests -->
+          <plugin>
+              <artifactId>maven-surefire-plugin</artifactId>
+              <version>2.16</version>
+              <configuration>
+                  <systemPropertyVariables>
+                      <test.user>${cmisuser}</test.user>
+                      <test.password>${cmispw}</test.password>
+                      <test.host>${cmishost}</test.host>
+                  </systemPropertyVariables>
+                  <skipTests>${skip.surefire.tests}</skipTests>
               </configuration>
           </plugin>
       </plugins>

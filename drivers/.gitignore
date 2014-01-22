@@ -1,0 +1,10 @@
+*.changes
+*.deb
+*.md5sum
+*.upload
+.classpath
+.project
+.settings/
+target/
+control
+noarch
