@@ -31,7 +31,7 @@ public class GetDescendantsSampler extends CmisSamplerBase {
         CmisObject obj = JmeterUtil.findChildByName(session.getRootFolder(), base);
         long desc = JmeterUtil.countDescendants((Folder) obj, depth);
         result.sampleEnd();
-        result.setResponseMessage("count" + desc);
+        result.setResponseData("count" + desc, "UTF-8");
         result.setResponseOK();
         return result;
     }
