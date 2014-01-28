@@ -30,13 +30,15 @@ public class RecursiveFileSampler extends CmisSamplerBase {
         int depth = Integer.parseInt(ctx.getParameter(DEPTH));
         long folderNum = Long.parseLong(ctx.getParameter(FOLDER_NUM));
         long fileNum = Long.parseLong(ctx.getParameter(FILE_NUM));
-        long fileSize = Long.parseLong(ctx.getParameter(FILESIZE))*1024;
-        
+        long fileSize = Long.parseLong(ctx.getParameter(FILESIZE)) * 1024;
+
         SampleResult result = new SampleResult();
         result.sampleStart();
-        JmeterUtil.createRecursiveFoldersAndFiles(session, base, depth, folderNum, fileNum, fileSize);
+        JmeterUtil.createRecursiveFoldersAndFiles(session, base, depth,
+                folderNum, fileNum, fileSize);
         result.sampleEnd();
         result.setResponseOK();
+        result.setResponseData("Created Folder " + base, "UTF-8");
         return result;
     }
 }
