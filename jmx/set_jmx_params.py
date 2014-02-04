@@ -5,6 +5,7 @@ from xml.etree import ElementTree as et
 
 
 def parse_arguments():
+    """parse command line arguments"""
     usage = "usage: %prog [options] file1 file2"
     parser = OptionParser(usage, version="%prog 1.0")
 
@@ -27,33 +28,41 @@ def parse_arguments():
     return (options, args)
 
 
-def replaceArgument(tree, name, value):
+def replace_argument(tree, name, value):
     """replace java runner argument in xml tree"""
     xpath = ".//elementProp[@name='{}']/stringProp[@name='Argument.value']"
     for host in tree.findall(xpath.format(name)):
         host.text = value
 
 
-def handleFile(file, pairs):
-    tree = et.parse(file)
+def handle_file(filename, pairs):
+    """parses xml file and writes changes back"""
+    tree = et.parse(filename)
     for key, value in pairs.items():
-        replaceArgument(tree, key, value)
-    tree.write(file)
+        replace_argument(tree, key, value)
+    tree.write(filename)
 
 
-(options, args) = parse_arguments()
-pairs = {}
-if options.clean:
-    for a in ['user', 'pw', 'host']:
-        pairs[a] = 'CHANGEME'
-else:
-    if options.user:
-        pairs['user'] = options.user
-    if options.pw:
-        pairs['pw'] = options.pw
-    if options.host:
-        pairs['host'] = options.host
+def main():
+    """main function"""
+    (options, args) = parse_arguments()
+    pairs = {}
+    if options.clean:
+        for arg in ['user', 'pw', 'host']:
+            pairs[arg] = 'CHANGEME'
+    else:
+        if options.user:
+            pairs['user'] = options.user
+        if options.pw:
+            pairs['pw'] = options.pw
+        if options.host:
+            pairs['host'] = options.host
 
-print pairs
-for file in args:
-    handleFile(file, pairs)
+    print pairs
+    for filename in args:
+        handle_file(filename, pairs)
+
+
+if __name__ == "__main__":
+    main()
+
