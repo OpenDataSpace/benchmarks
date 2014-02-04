@@ -21,7 +21,7 @@ def parse_arguments():
     (options, args) = parser.parse_args()
 
     if options.clean and (options.user or options.pw or options.host):
-        parser.error("--clean can not be combined with anything but --file")
+        parser.error("--clean can not be combined with any other parameter")
     if len(args) == 0:
         parser.error("Please supply filename(s)")
 
