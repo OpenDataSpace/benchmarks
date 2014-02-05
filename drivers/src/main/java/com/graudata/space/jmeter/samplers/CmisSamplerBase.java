@@ -1,6 +1,7 @@
 package com.graudata.space.jmeter.samplers;
 
 import org.apache.chemistry.opencmis.client.api.Session;
+import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.apache.jmeter.config.Arguments;
 import org.apache.jmeter.protocol.java.sampler.AbstractJavaSamplerClient;
 import org.apache.jmeter.protocol.java.sampler.JavaSamplerContext;
@@ -24,28 +25,21 @@ public abstract class CmisSamplerBase extends AbstractJavaSamplerClient {
     @Override
     public SampleResult runTest(JavaSamplerContext ctx) {
 
-        if (session == null) {
+        try {
+            session = JmeterUtil.getSession(ctx.getParameter("host"),
+                    ctx.getParameter("user"), ctx.getParameter("pw"));
+            return doRunTest(ctx);
+        } catch (Throwable e) {
             SampleResult result = new SampleResult();
-            result.setResponseCode("Not Authorized");
-            result.setResponseData("Unable to get Session", "UTF-8");
+            result.setResponseCode(e.getMessage());
+            String st = ExceptionUtils.getStackTrace(e);
+            result.setResponseData(e.getMessage() + "\n" + st, "UTF-8");
             return result;
         }
 
-        return doRunTest(ctx);
 
     }
 
     public abstract SampleResult doRunTest(JavaSamplerContext ctx);
-
-    @Override
-    public void setupTest(JavaSamplerContext ctx) {
-        try {
-            session = JmeterUtil.getSession(ctx.getParameter("host"),
-                    ctx.getParameter("user"), ctx.getParameter("pw"));
-        } catch (Exception e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-    }
 
 }
