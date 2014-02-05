@@ -1,18 +1,19 @@
-<jmeterTestPlan jmeter="2.11 r1554548" properties="2.6" version="1.2">
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="2.6" jmeter="2.11 r1554548">
   <hashTree>
-    <TestPlan enabled="true" guiclass="TestPlanGui" testclass="TestPlan" testname="Test Plan">
-      <stringProp name="TestPlan.comments" />
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Test Plan" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
       <boolProp name="TestPlan.functional_mode">false</boolProp>
       <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
-      <elementProp elementType="Arguments" enabled="true" guiclass="ArgumentsPanel" name="TestPlan.user_defined_variables" testclass="Arguments" testname="User Defined Variables">
-        <collectionProp name="Arguments.arguments" />
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
       </elementProp>
-      <stringProp name="TestPlan.user_define_classpath" />
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
     </TestPlan>
     <hashTree>
-      <ThreadGroup enabled="true" guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group" enabled="true">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
-        <elementProp elementType="LoopController" enabled="true" guiclass="LoopControlPanel" name="ThreadGroup.main_controller" testclass="LoopController" testname="Loop Controller">
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
           <stringProp name="LoopController.loops">10</stringProp>
         </elementProp>
@@ -21,49 +22,49 @@
         <longProp name="ThreadGroup.start_time">1390918101000</longProp>
         <longProp name="ThreadGroup.end_time">1390918101000</longProp>
         <boolProp name="ThreadGroup.scheduler">false</boolProp>
-        <stringProp name="ThreadGroup.duration" />
-        <stringProp name="ThreadGroup.delay" />
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
       </ThreadGroup>
       <hashTree>
-        <JavaSampler enabled="true" guiclass="JavaTestSamplerGui" testclass="JavaSampler" testname="Create">
-          <elementProp elementType="Arguments" enabled="true" guiclass="ArgumentsPanel" name="arguments" testclass="Arguments">
+        <JavaSampler guiclass="JavaTestSamplerGui" testclass="JavaSampler" testname="Create" enabled="true">
+          <elementProp name="arguments" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" enabled="true">
             <collectionProp name="Arguments.arguments">
-              <elementProp elementType="Argument" name="host">
+              <elementProp name="host" elementType="Argument">
                 <stringProp name="Argument.name">host</stringProp>
                 <stringProp name="Argument.value">CHANGEME</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
-              <elementProp elementType="Argument" name="user">
+              <elementProp name="user" elementType="Argument">
                 <stringProp name="Argument.name">user</stringProp>
                 <stringProp name="Argument.value">CHANGEME</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
-              <elementProp elementType="Argument" name="pw">
+              <elementProp name="pw" elementType="Argument">
                 <stringProp name="Argument.name">pw</stringProp>
                 <stringProp name="Argument.value">CHANGEME</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
-              <elementProp elementType="Argument" name="filesize">
+              <elementProp name="filesize" elementType="Argument">
                 <stringProp name="Argument.name">filesize</stringProp>
                 <stringProp name="Argument.value">1024</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
-              <elementProp elementType="Argument" name="filenumber">
+              <elementProp name="filenumber" elementType="Argument">
                 <stringProp name="Argument.name">filenumber</stringProp>
                 <stringProp name="Argument.value">10</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
-              <elementProp elementType="Argument" name="foldernumber">
+              <elementProp name="foldernumber" elementType="Argument">
                 <stringProp name="Argument.name">foldernumber</stringProp>
                 <stringProp name="Argument.value">0</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
-              <elementProp elementType="Argument" name="depth">
+              <elementProp name="depth" elementType="Argument">
                 <stringProp name="Argument.name">depth</stringProp>
                 <stringProp name="Argument.value">0</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
-              <elementProp elementType="Argument" name="basename">
+              <elementProp name="basename" elementType="Argument">
                 <stringProp name="Argument.name">basename</stringProp>
                 <stringProp name="Argument.value">${__threadNum}</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -73,7 +74,7 @@
           <stringProp name="classname">com.graudata.space.jmeter.samplers.RecursiveFileSampler</stringProp>
         </JavaSampler>
         <hashTree>
-          <ResultCollector enabled="true" guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree">
+          <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
             <boolProp name="ResultCollector.error_logging">false</boolProp>
             <objProp>
               <name>saveConfig</name>
@@ -104,27 +105,37 @@
             </objProp>
             <stringProp name="filename">create_output.csv</stringProp>
           </ResultCollector>
-          <hashTree />
+          <hashTree/>
+          <ResultSaver guiclass="ResultSaverGui" testclass="ResultSaver" testname="Save Responses to a file" enabled="true">
+            <stringProp name="FileSaver.filename">create_failed</stringProp>
+            <boolProp name="FileSaver.errorsonly">true</boolProp>
+            <boolProp name="FileSaver.skipautonumber">false</boolProp>
+            <boolProp name="FileSaver.skipsuffix">false</boolProp>
+            <boolProp name="FileSaver.successonly">false</boolProp>
+            <stringProp name="FileSaver.variablename">__threadNum</stringProp>
+            <stringProp name="FileSaver.numberPadLen">3</stringProp>
+          </ResultSaver>
+          <hashTree/>
         </hashTree>
-        <JavaSampler enabled="true" guiclass="JavaTestSamplerGui" testclass="JavaSampler" testname="Delete">
-          <elementProp elementType="Arguments" enabled="true" guiclass="ArgumentsPanel" name="arguments" testclass="Arguments">
+        <JavaSampler guiclass="JavaTestSamplerGui" testclass="JavaSampler" testname="Delete" enabled="true">
+          <elementProp name="arguments" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" enabled="true">
             <collectionProp name="Arguments.arguments">
-              <elementProp elementType="Argument" name="host">
+              <elementProp name="host" elementType="Argument">
                 <stringProp name="Argument.name">host</stringProp>
                 <stringProp name="Argument.value">CHANGEME</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
-              <elementProp elementType="Argument" name="user">
+              <elementProp name="user" elementType="Argument">
                 <stringProp name="Argument.name">user</stringProp>
                 <stringProp name="Argument.value">CHANGEME</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
-              <elementProp elementType="Argument" name="pw">
+              <elementProp name="pw" elementType="Argument">
                 <stringProp name="Argument.name">pw</stringProp>
                 <stringProp name="Argument.value">CHANGEME</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
-              <elementProp elementType="Argument" name="basename">
+              <elementProp name="basename" elementType="Argument">
                 <stringProp name="Argument.name">basename</stringProp>
                 <stringProp name="Argument.value">${__threadNum}</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -134,7 +145,7 @@
           <stringProp name="classname">com.graudata.space.jmeter.samplers.DeleteFolderSampler</stringProp>
         </JavaSampler>
         <hashTree>
-          <ResultCollector enabled="true" guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree">
+          <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
             <boolProp name="ResultCollector.error_logging">false</boolProp>
             <objProp>
               <name>saveConfig</name>
@@ -165,9 +176,19 @@
             </objProp>
             <stringProp name="filename">delete_output.csv</stringProp>
           </ResultCollector>
-          <hashTree />
+          <hashTree/>
+          <ResultSaver guiclass="ResultSaverGui" testclass="ResultSaver" testname="Save Responses to a file" enabled="true">
+            <stringProp name="FileSaver.filename">delete_failed</stringProp>
+            <boolProp name="FileSaver.errorsonly">true</boolProp>
+            <boolProp name="FileSaver.skipautonumber">false</boolProp>
+            <boolProp name="FileSaver.skipsuffix">false</boolProp>
+            <boolProp name="FileSaver.successonly">false</boolProp>
+            <stringProp name="FileSaver.variablename">__threadNum</stringProp>
+            <stringProp name="FileSaver.numberPadLen">3</stringProp>
+          </ResultSaver>
+          <hashTree/>
         </hashTree>
-        <ResultCollector enabled="true" guiclass="StatGraphVisualizer" testclass="ResultCollector" testname="Aggregate Graph">
+        <ResultCollector guiclass="StatGraphVisualizer" testclass="ResultCollector" testname="Aggregate Graph" enabled="true">
           <boolProp name="ResultCollector.error_logging">false</boolProp>
           <objProp>
             <name>saveConfig</name>
@@ -198,7 +219,7 @@
           </objProp>
           <stringProp name="filename">runtime.csv</stringProp>
         </ResultCollector>
-        <hashTree />
+        <hashTree/>
       </hashTree>
     </hashTree>
   </hashTree>
