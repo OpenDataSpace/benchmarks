@@ -1,3 +1,4 @@
+
 package com.graudata.space.jmeter.samplers;
 
 import org.apache.jmeter.config.Arguments;
