@@ -46,6 +46,7 @@ def parse_arguments():
 
 def replace_argument(tree, name, value):
     """replace java runner argument in xml tree"""
+    # Hack to ensure compatability to python 2.6 on CentOS (broken xpath)
     for element in tree.findall('.//elementProp'):
         if(element.attrib.get('name') == name):
             for sub in element.findall('stringProp'):
