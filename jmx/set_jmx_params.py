@@ -47,8 +47,11 @@ def parse_arguments():
 def replace_argument(tree, name, value):
     """replace java runner argument in xml tree"""
     xpath = ".//elementProp[@name='{}']/stringProp[@name='Argument.value']"
-    for host in tree.findall(xpath.format(name)):
-        host.text = value
+    for element in tree.findall('.//elementProp'):
+        if(element.attrib.get('name') == name):
+            for sub in element.findall('stringProp'):
+                if(sub.attrib.get('name') == 'Argument.value'):
+                    sub.text = value
 
 
 def handle_file(filename, pairs):
