@@ -64,6 +64,7 @@ public class JmeterUtil {
         parameter.put(SessionParameter.BINDING_TYPE,
                 BindingType.ATOMPUB.value());
         parameter.put(SessionParameter.REPOSITORY_ID, "my");
+        parameter.put(SessionParameter.COOKIES, "true");
 
         List<Repository> repositories = factory.getRepositories(parameter);
         // create session
