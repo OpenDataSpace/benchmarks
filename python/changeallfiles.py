@@ -2,7 +2,6 @@ import os
 import sys
 
 def append1kbtoFile(filename):
-    print(filename)
     fp = open(filename, "ab")
     fp.write(bytes('a' * 1024 ,"ASCII"))
     fp.close()
