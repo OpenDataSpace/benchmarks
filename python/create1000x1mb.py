@@ -3,7 +3,7 @@ import sys
 
 def create1mbFile(filename):
     fp = open(filename, "wb")
-    fp.write(bytes('\0' * 1024 * 1024 ,"ASCII"))
+    fp.write(bytes('0' * 1024 * 1024 ,"ASCII"))
     fp.close()
 
 base = "."
